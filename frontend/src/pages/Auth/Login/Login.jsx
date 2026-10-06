@@ -25,6 +25,7 @@ export default function Login() {
     try {
       const { data: usuario } = await api.post('/auth/login', { email, senha })
       // TODO: salvar a sessão no localStorage na chave "@dadoslogin" (o services/api lê o token de lá)
+       localStorage.setItem("@dadoslogin", JSON.stringify(usuario));
       // e redirecionar: equipe -> /admin/processos; lar -> /pets (ou redirectTo, repassando { petId })
       console.log(usuario)
       setEnviando(false)
